@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 import {createPhotos} from './create-photos.js';
-import {increaseMiniPicture} from './increase-mini-picture.js';
+import {openBigPicture} from './open-big-picture.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const fragment = document.createDocumentFragment();
@@ -17,7 +17,7 @@ const createMiniPicture = (photo) => {
   pictureLikes.textContent = photo.likes;
   pictureComments.textContent = photo.comments.length;
 
-  increaseMiniPicture(pictureNewTemplate, photo);
+  openBigPicture(pictureNewTemplate, photo);
 
   return pictureNewTemplate;
 };
