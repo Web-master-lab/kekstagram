@@ -14,6 +14,8 @@ const getRandomArrayOfNumbers = (amountIndex) => {
   return RANDOM_NUMBERS_ARRAY;
 };
 
+const isSomeKey = (evt, keyName) => evt.key === keyName;
+
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
-export {getRandomArrayOfNumbers, getRandomPositiveInteger, checkStringLength};
+export {getRandomArrayOfNumbers, getRandomPositiveInteger, checkStringLength, isSomeKey};
