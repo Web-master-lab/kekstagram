@@ -1,4 +1,5 @@
 import { isSomeKey } from './util.js';
+import { currentScaleValue } from './edit-image.js';
 
 const form = document.querySelector('.img-upload__form');
 const hashtagField = document.querySelector('.text__hashtags');
@@ -7,6 +8,7 @@ const body = document.querySelector('body');
 const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
 const commentField = document.querySelector('.text__description');
+const scaleValue = document.querySelector('.scale__control--value');
 
 const MAX_HASHTAG_COUNT = 5;
 const UNVALID_SYMBOLS = /^#[A-Za-zА-Яа-яЕё0-9]{1,19}$/;
@@ -19,6 +21,7 @@ const pristine = new Pristine(form, {
 
 const showModal = () => {
   overlay.classList.remove('hidden');
+  scaleValue.value = `${currentScaleValue}%`;
   body.classList.add('modal-open');
   document.addEventListener('keydown', onEscKeyDown);
 };
