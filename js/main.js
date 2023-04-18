@@ -4,3 +4,4 @@ import './create-photos.js';
 import './create-mini-picture.js';
 import './open-big-picture.js';
 import './form.js';
+import './edit-image.js';
