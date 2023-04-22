@@ -1,28 +1,8 @@
-const buttonSmaller = document.querySelector('.scale__control--smaller');
-const buttonBigger = document.querySelector('.scale__control--bigger');
-const scaleValue = document.querySelector('.scale__control--value');
 const image = document.querySelector('.img-upload__preview').querySelector('img');
 const effectsList = document.querySelector('.effects__list');
 const effectSlider = document.querySelector('.effect-level__slider');
 const effectLevel = document.querySelector('.effect-level__value');
 
-let currentScaleValue = 50;
-
-const onButtonSmallerClick = () => {
-  if (currentScaleValue !== 0) {
-    currentScaleValue-= 25;
-    image.style.transform = `scale(${currentScaleValue/100})`;
-  }
-  scaleValue.value = `${currentScaleValue}%`;
-};
-
-const onButtonBiggerClick = () => {
-  if (currentScaleValue !== 100) {
-    currentScaleValue+= 25;
-    image.style.transform = `scale(${currentScaleValue/100})`;
-  }
-  scaleValue.value = `${currentScaleValue}%`;
-};
 
 noUiSlider.create(effectSlider, {
   range: {
@@ -119,8 +99,6 @@ const onEffectsListChange = (evt) => {
   }
 };
 
-effectsList.addEventListener('change', onEffectsListChange);
-buttonBigger.addEventListener('click', onButtonBiggerClick);
-buttonSmaller.addEventListener('click', onButtonSmallerClick);
 
-export {currentScaleValue};
+effectsList.addEventListener('change', onEffectsListChange);
+
