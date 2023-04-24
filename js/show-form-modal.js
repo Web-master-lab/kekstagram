@@ -9,6 +9,9 @@ const form = document.querySelector('.img-upload__form');
 const hashtagField = document.querySelector('.text__hashtags');
 const cancelButton = document.querySelector('#upload-cancel');
 const fileField = document.querySelector('#upload-file');
+const image = document.querySelector('.img-upload__preview').querySelector('img');
+
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__element',
@@ -48,6 +51,15 @@ const onCancelButtonClick = () => {
 };
 
 const onFileInputChange = () => {
+  const file = fileField.files[0];
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+
+  if (matches) {
+    image.src = URL.createObjectURL(file);
+  }
+
   showModal();
 };
 
