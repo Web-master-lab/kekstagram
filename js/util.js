@@ -8,7 +8,7 @@ const getRandomPositiveInteger = (a, b) => {
 const getRandomArrayOfNumbers = (amountIndex) => {
   const RANDOM_NUMBERS_ARRAY = [];
   while (RANDOM_NUMBERS_ARRAY.length < amountIndex) {
-    const number = getRandomPositiveInteger(1, amountIndex);
+    const number = getRandomPositiveInteger(0, amountIndex);
     if(RANDOM_NUMBERS_ARRAY.indexOf(number) === -1) {RANDOM_NUMBERS_ARRAY.push(number);}
   }
   return RANDOM_NUMBERS_ARRAY;
@@ -18,4 +18,12 @@ const isSomeKey = (evt, keyName) => evt.key === keyName;
 
 const checkStringLength = (string, maxLength) => string.length <= maxLength;
 
-export {getRandomArrayOfNumbers, getRandomPositiveInteger, checkStringLength, isSomeKey};
+function debounce (callback, timeoutDelay) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+export {getRandomArrayOfNumbers, getRandomPositiveInteger, checkStringLength, isSomeKey, debounce};
